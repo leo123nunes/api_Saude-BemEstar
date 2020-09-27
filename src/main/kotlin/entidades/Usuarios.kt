@@ -16,7 +16,7 @@ class Usuarios(var nome: String, var idade: Int, var peso: Double,
         return peso / (altura*altura)
     }
 
-    fun verificaPeso(imc: Double): GrauIMC{
+    fun verificaPeso(): GrauIMC{
         var imc = calcularIMC()
         return when{
             imc < 18.5 -> GrauIMC.ABAIXO
