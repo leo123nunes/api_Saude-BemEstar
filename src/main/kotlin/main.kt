@@ -34,11 +34,10 @@ fun main() {
                 }
             }
 
-            get("/") {
-                call.respondText("<h1>Hello World !!!!</h1>", ContentType.Text.Html)
-            }
-
             get("/usuarios") {
+                if(usuarios.getUsuariosImcAll().isEmpty()){
+                    call.respondText{"<h1>Nenhum usuario esta cadastrado no sistema.</h1>"}
+                }
                 call.respond(usuarios.getUsuariosImcAll())
             }
 
@@ -64,6 +63,11 @@ fun main() {
 
             get("/usuarios/imc/obesidade3") {
                 call.respond(usuarios.getUsuariosImcObesidade3())
+            }
+
+            post("/usuarios") {
+                val novoUsuario = call.receive<Usuarios>()
+                usuarios.adicionarUsuario(novoUsuario)
             }
 
         }
