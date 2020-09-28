@@ -10,10 +10,10 @@ class Pessoa(var nome: String, var idade: Int,var peso: Double,var altura: Doubl
     fun verificaPeso(imc: Double): String{
         return when{
             imc < 18.5 -> "Abaixo do peso"
-            imc > 18.5 && imc < 24.9 -> "Peso normal"
-            imc > 25 && imc < 29.9 -> "Sobrepeso"
-            imc > 30 && imc < 34.9 -> "Obesidade grau 1"
-            imc > 35 && imc < 39.9 -> "Obesidade grau 2"
+            imc >= 18.5 && imc < 24.9 -> "Peso normal"
+            imc >= 25 && imc < 29.9 -> "Sobrepeso"
+            imc >= 30 && imc < 34.9 -> "Obesidade grau 1"
+            imc >= 35 && imc < 39.9 -> "Obesidade grau 2"
             else -> "Obesidade grau 3"
         }
     }
