@@ -9,7 +9,7 @@ class RotinaExercicios {
         exercicios.add(exercicio)
     }
 
-    fun removerAlimento(nome: String){
+    fun removerExercicio(nome: String){
         exercicios.removeIf{it.getNome()==nome}
     }
 

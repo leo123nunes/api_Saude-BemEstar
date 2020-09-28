@@ -22,8 +22,6 @@ import repositorio.UsuariosCadastrados
 
 var usuariosCadastrados: UsuariosCadastrados = UsuariosCadastrados()
 
-var RotinaALIMENTOS: RotinaAlimentos = RotinaAlimentos()
-
 fun main() {
 
     embeddedServer(Netty, 8080) {

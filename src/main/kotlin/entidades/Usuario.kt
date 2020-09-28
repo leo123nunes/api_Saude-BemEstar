@@ -11,11 +11,11 @@ open class Usuario(private var nome: String,private var idade: Int,
                    private var peso: Double,private var altura: Double,
                    private var cpf: String, private var fator: Double) {
 
-    private var rotinaExercicios: RotinaExercicios = RotinaExercicios()
+    private var treinoExercicios: RotinaExercicios = RotinaExercicios()
     private var dieta: RotinaAlimentos = RotinaAlimentos()
     private var grauIMC: IMC = grauIMC()
     private var porcentagemGorduraCorpotal = calcularIMC()
-    private var necessidadeEnergetica = necessidade()
+    private var necessidadeEnergetica = necessidadeEnergetica()
 
     init{
         this.montarExercicios()
@@ -70,11 +70,19 @@ open class Usuario(private var nome: String,private var idade: Int,
         dieta.adicionarAlimento(alimento)
     }
 
-    fun adicionarExercicio(exercicio: Exercicio){
-        rotinaExercicios.adicionarExercicio(exercicio)
+    fun removerAlimento(nome: String){
+        dieta.removerAlimento(nome)
     }
 
-    fun necessidade(): Double{
+    fun removerExercicio(nome: String){
+        treinoExercicios.removerExercicio(nome)
+    }
+
+    fun adicionarExercicio(exercicio: Exercicio){
+        treinoExercicios.adicionarExercicio(exercicio)
+    }
+
+    fun necessidadeEnergetica(): Double{
         var energia: Double = 135.3 - (30.8 * idade) + fator * (10 * peso + 934 * altura) + 25
         println("Sua Necessidade Energetica é de $energia Kcal")
         return energia
@@ -96,15 +104,15 @@ open class Usuario(private var nome: String,private var idade: Int,
 
     open fun montarExercicios(){
         var musculosEsteira = listOf(MusculosCorpo.PERNA,MusculosCorpo.PANTURRILHA)
-        rotinaExercicios.adicionarExercicio(Exercicio("Esteira",musculosEsteira))
+        treinoExercicios.adicionarExercicio(Exercicio("Esteira",musculosEsteira))
 
         var musculosBicicleta = listOf(MusculosCorpo.ABDOMEN,MusculosCorpo.PANTURRILHA,MusculosCorpo.PERNA)
-        rotinaExercicios.adicionarExercicio(Exercicio("Bicicleta",musculosBicicleta))
+        treinoExercicios.adicionarExercicio(Exercicio("Bicicleta",musculosBicicleta))
 
         var musculosAbdominal = listOf(MusculosCorpo.ABDOMEN)
-        rotinaExercicios.adicionarExercicio(Exercicio("Abdominal",musculosAbdominal))
+        treinoExercicios.adicionarExercicio(Exercicio("Abdominal",musculosAbdominal))
 
         var musculosFlexao = listOf(MusculosCorpo.TRICEPS,MusculosCorpo.PEITO)
-        rotinaExercicios.adicionarExercicio(Exercicio("Flexão",musculosFlexao))
+        treinoExercicios.adicionarExercicio(Exercicio("Flexão",musculosFlexao))
     }
 }
