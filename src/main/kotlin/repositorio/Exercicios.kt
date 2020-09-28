@@ -10,7 +10,7 @@ class Exercicios {
     }
 
     fun removerAlimento(nome: String){
-        exercicios.removeIf{it.nome==nome}
+        exercicios.removeIf{it.getNome()==nome}
     }
 
     fun getExercicios(): MutableList<Exercicio>{

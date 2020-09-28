@@ -4,7 +4,7 @@ import entidades.Alimento
 import entidades.Exercicio
 import entidades.Usuario
 import enums.Cores
-import enums.PartesCorpo
+import enums.MusculosCorpo
 import enums.Vitaminas
 
 class UsuarioHipertrofico(nome: String, idade: Int, peso: Double,
@@ -26,19 +26,19 @@ class UsuarioHipertrofico(nome: String, idade: Int, peso: Double,
     }
 
     override fun montarExercicios(){
-        var musculosSupino = listOf(PartesCorpo.TRICEPS, PartesCorpo.PEITO)
+        var musculosSupino = listOf(MusculosCorpo.TRICEPS, MusculosCorpo.PEITO)
         adicionarExercicio(Exercicio("Supino",musculosSupino))
 
-        var musculosAbdominal = listOf(PartesCorpo.ABDOMEN)
+        var musculosAbdominal = listOf(MusculosCorpo.ABDOMEN)
         adicionarExercicio(Exercicio("Abdominal",musculosAbdominal))
 
-        var musculosLegPress = listOf(PartesCorpo.PERNA, PartesCorpo.PANTURRILHA)
+        var musculosLegPress = listOf(MusculosCorpo.PERNA, MusculosCorpo.PANTURRILHA)
         adicionarExercicio(Exercicio("LegPress",musculosLegPress))
 
-        var musculosRoscaDireta = listOf(PartesCorpo.BICEPS, PartesCorpo.ANTEBRACO)
+        var musculosRoscaDireta = listOf(MusculosCorpo.BICEPS, MusculosCorpo.ANTEBRACO)
         adicionarExercicio(Exercicio("Rosca Direta",musculosRoscaDireta))
 
-        var musculosTricepsFrances = listOf(PartesCorpo.TRICEPS)
+        var musculosTricepsFrances = listOf(MusculosCorpo.TRICEPS)
         adicionarExercicio(Exercicio("Triceps Frances",musculosTricepsFrances))
     }
 }

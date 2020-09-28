@@ -2,7 +2,7 @@ package entidades
 
 import enums.Cores
 import enums.IMC
-import enums.PartesCorpo
+import enums.MusculosCorpo
 import enums.Vitaminas
 import repositorio.Alimentos
 import repositorio.Exercicios
@@ -14,6 +14,12 @@ open class Usuario(private var nome: String,private var idade: Int,
     private var exercicios: Exercicios = Exercicios()
     private var dieta: Alimentos = Alimentos()
     private var grauIMC: IMC = grauIMC()
+    private var porcentagemGorduraCorpotal = calcularIMC()
+
+    init{
+        this.montarExercicios()
+        this.montarDieta()
+    }
 
     fun getCpf(): String{
         return cpf
@@ -78,16 +84,16 @@ open class Usuario(private var nome: String,private var idade: Int,
     }
 
     open fun montarExercicios(){
-        var musculosEsteira = listOf(PartesCorpo.PERNA,PartesCorpo.PANTURRILHA)
+        var musculosEsteira = listOf(MusculosCorpo.PERNA,MusculosCorpo.PANTURRILHA)
         exercicios.adicionarExercicio(Exercicio("Esteira",musculosEsteira))
 
-        var musculosBicicleta = listOf(PartesCorpo.ABDOMEN,PartesCorpo.PANTURRILHA,PartesCorpo.PERNA)
+        var musculosBicicleta = listOf(MusculosCorpo.ABDOMEN,MusculosCorpo.PANTURRILHA,MusculosCorpo.PERNA)
         exercicios.adicionarExercicio(Exercicio("Bicicleta",musculosBicicleta))
 
-        var musculosAbdominal = listOf(PartesCorpo.ABDOMEN)
+        var musculosAbdominal = listOf(MusculosCorpo.ABDOMEN)
         exercicios.adicionarExercicio(Exercicio("Abdominal",musculosAbdominal))
 
-        var musculosFlexao = listOf(PartesCorpo.TRICEPS,PartesCorpo.PEITO)
+        var musculosFlexao = listOf(MusculosCorpo.TRICEPS,MusculosCorpo.PEITO)
         exercicios.adicionarExercicio(Exercicio("Flexão",musculosFlexao))
     }
 }

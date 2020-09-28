@@ -4,11 +4,8 @@ import entidades.Alimento
 import entidades.Exercicio
 import entidades.Usuario
 import enums.Cores
-import enums.IMC
-import enums.PartesCorpo
+import enums.MusculosCorpo
 import enums.Vitaminas
-import repositorio.Alimentos
-import repositorio.Exercicios
 
 class UsuarioFitness(nome: String,idade: Int, peso: Double,
                      altura: Double, cpf: String) : Usuario(nome,idade,peso,altura,cpf) {
@@ -29,13 +26,13 @@ class UsuarioFitness(nome: String,idade: Int, peso: Double,
     }
 
     override fun montarExercicios(){
-        var musculosBicicleta = listOf(PartesCorpo.ABDOMEN, PartesCorpo.PANTURRILHA, PartesCorpo.PERNA)
+        var musculosBicicleta = listOf(MusculosCorpo.ABDOMEN, MusculosCorpo.PANTURRILHA, MusculosCorpo.PERNA)
         adicionarExercicio(Exercicio("Bicicleta",musculosBicicleta))
 
-        var musculosAbdominal = listOf(PartesCorpo.ABDOMEN)
+        var musculosAbdominal = listOf(MusculosCorpo.ABDOMEN)
         adicionarExercicio(Exercicio("Abdominal",musculosAbdominal))
 
-        var musculosTreinoHit = listOf(PartesCorpo.PERNA, PartesCorpo.PANTURRILHA,PartesCorpo.ABDOMEN)
+        var musculosTreinoHit = listOf(MusculosCorpo.PERNA, MusculosCorpo.PANTURRILHA,MusculosCorpo.ABDOMEN)
         adicionarExercicio(Exercicio("Treino Hit",musculosTreinoHit))
     }
 }

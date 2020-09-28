@@ -16,7 +16,7 @@ class Alimentos {
     }
 
     fun removerAlimento(nome: String){
-        alimentos.removeIf{it.nome==nome}
+        alimentos.removeIf{it.getNome()==nome}
     }
 
     fun getAlimentos(): MutableList<Alimento>{

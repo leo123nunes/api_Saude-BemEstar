@@ -1,6 +1,15 @@
 package entidades
 
-import enums.PartesCorpo
+import enums.MusculosCorpo
 
-data class Exercicio (var nome: String, var musculos: List<PartesCorpo>){
+data class Exercicio (private var nome: String,
+                        private var musculos: List<MusculosCorpo>){
+    fun getNome(): String{
+        return nome
+    }
+
+    fun getMusculos(): List<MusculosCorpo> {
+        return musculos
+    }
+
 }
