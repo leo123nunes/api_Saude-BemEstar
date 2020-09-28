@@ -14,6 +14,7 @@ import io.ktor.server.netty.Netty
 import io.ktor.gson.*
 import io.ktor.request.*
 import io.ktor.response.*
+import io.ktor.routing.param
 import objetivos.UsuarioFitness
 import objetivos.UsuarioHipertrofico
 import repositorio.RotinaAlimentos
@@ -79,21 +80,21 @@ fun main() {
 
             }
 
-
             post("/usuarios") {
                 val novoUsuario = call.receive<Usuario>()
                 if (novoUsuario.grauIMC() == IMC.ABAIXO ||
                         novoUsuario.grauIMC() == IMC.NORMAL) {
                     val novoUsuarioHipertrofico = UsuarioHipertrofico(novoUsuario.getNome(),
                             novoUsuario.getIdade(), novoUsuario.getPeso(), novoUsuario.getAltura(),
-                            novoUsuario.getCpf())
+                            novoUsuario.getCpf(), novoUsuario.getFator())
                     usuariosCadastrados.adicionarUsuario(novoUsuarioHipertrofico)
                 } else {
                     val novoUsuarioFitness = UsuarioHipertrofico(novoUsuario.getNome(),
                             novoUsuario.getIdade(), novoUsuario.getPeso(), novoUsuario.getAltura(),
-                            novoUsuario.getCpf())
+                            novoUsuario.getCpf(), novoUsuario.getFator())
                     usuariosCadastrados.adicionarUsuario(novoUsuarioFitness)
                 }
+                call.respond("Usuário inserido com sucesso!")
             }
 
         }

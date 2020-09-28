@@ -9,12 +9,13 @@ import repositorio.RotinaExercicios
 
 open class Usuario(private var nome: String,private var idade: Int,
                    private var peso: Double,private var altura: Double,
-                   private var cpf: String) {
+                   private var cpf: String, private var fator: Double) {
 
     private var rotinaExercicios: RotinaExercicios = RotinaExercicios()
     private var dieta: RotinaAlimentos = RotinaAlimentos()
     private var grauIMC: IMC = grauIMC()
     private var porcentagemGorduraCorpotal = calcularIMC()
+    private var necessidadeEnergetica = necessidade()
 
     init{
         this.montarExercicios()
@@ -39,6 +40,10 @@ open class Usuario(private var nome: String,private var idade: Int,
 
     fun getIdade(): Int{
         return idade
+    }
+
+    fun getFator(): Double{
+        return fator
     }
 
     fun calcularIMC(): Double{
@@ -67,6 +72,12 @@ open class Usuario(private var nome: String,private var idade: Int,
 
     fun adicionarExercicio(exercicio: Exercicio){
         rotinaExercicios.adicionarExercicio(exercicio)
+    }
+
+    fun necessidade(): Double{
+        var energia: Double = 135.3 - (30.8 * idade) + fator * (10 * peso + 934 * altura) + 25
+        println("Sua Necessidade Energetica é de $energia Kcal")
+        return energia
     }
 
     open fun montarDieta(){

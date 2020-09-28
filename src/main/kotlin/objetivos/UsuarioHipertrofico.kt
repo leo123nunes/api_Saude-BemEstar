@@ -8,7 +8,7 @@ import enums.MusculosCorpo
 import enums.Vitaminas
 
 class UsuarioHipertrofico(nome: String, idade: Int, peso: Double,
-                          altura: Double, cpf: String) : Usuario(nome,idade,peso,altura,cpf){
+                          altura: Double, cpf: String, fator: Double) : Usuario(nome,idade,peso,altura,cpf,fator){
 
     override fun montarDieta(){
         limparDieta()
