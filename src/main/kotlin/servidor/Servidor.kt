@@ -20,6 +20,8 @@ import objetivos.UsuarioHipertrofico
 import repositorio.RotinaAlimentos
 import repositorio.UsuariosCadastrados
 
+//Servidor main da aplicação
+
 var usuariosCadastrados: UsuariosCadastrados = UsuariosCadastrados()
 
 fun main() {

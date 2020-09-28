@@ -4,6 +4,9 @@ import entidades.Alimento
 import enums.Cores
 import enums.Vitaminas
 
+// Esta classe representa a dieta através de uma lista de alimentos
+// de cada usuário
+
 class RotinaAlimentos {
     private var alimentos: MutableList<Alimento> = mutableListOf()
 

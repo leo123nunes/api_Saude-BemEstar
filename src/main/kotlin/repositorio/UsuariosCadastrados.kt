@@ -2,6 +2,9 @@ package repositorio
 import entidades.Usuario
 import enums.IMC
 
+// Esta classe representa os usuários cadastrados no sistema através
+// de uma lista de Usuarios.
+
 class UsuariosCadastrados {
     private var usuarios: MutableList<Usuario> = arrayListOf()
 

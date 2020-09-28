@@ -7,6 +7,8 @@ import enums.Vitaminas
 import repositorio.RotinaAlimentos
 import repositorio.RotinaExercicios
 
+// Esta classe representa o usuario padrão do sistema
+
 open class Usuario(private var nome: String,private var idade: Int,
                    private var peso: Double,private var altura: Double,
                    private var cpf: String, private var fator: Double) {

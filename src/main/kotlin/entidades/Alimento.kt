@@ -3,6 +3,8 @@ package entidades
 import enums.Cores
 import enums.Vitaminas
 
+// Esta classe representa cada alimento da dieta do usuário.
+
 data class Alimento(private var nome: String, private var cor: Cores,
                     private var calorias: Double, private var vitaminas: List<Vitaminas>){
 

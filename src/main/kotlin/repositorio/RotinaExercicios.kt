@@ -2,6 +2,9 @@ package repositorio
 
 import entidades.Exercicio
 
+// Esta classe representa o treino através de uma lista de exercícios
+// de cada usuário
+
 class RotinaExercicios {
     private var exercicios: MutableList<Exercicio> = mutableListOf()
 

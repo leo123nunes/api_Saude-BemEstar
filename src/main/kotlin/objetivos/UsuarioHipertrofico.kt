@@ -7,6 +7,9 @@ import enums.Cores
 import enums.MusculosCorpo
 import enums.Vitaminas
 
+// Esta classe monta um usuário que possui objetivo hipertrofico de acordo
+// com a sua gordura corporal, herdeira da classe Usuario
+
 class UsuarioHipertrofico(nome: String, idade: Int, peso: Double,
                           altura: Double, cpf: String, fator: Double) : Usuario(nome,idade,peso,altura,cpf,fator){
 
