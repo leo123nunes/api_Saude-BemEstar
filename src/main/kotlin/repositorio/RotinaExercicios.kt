@@ -2,7 +2,7 @@ package repositorio
 
 import entidades.Exercicio
 
-class Exercicios {
+class RotinaExercicios {
     private var exercicios: MutableList<Exercicio> = mutableListOf()
 
     fun adicionarExercicio(exercicio: Exercicio){

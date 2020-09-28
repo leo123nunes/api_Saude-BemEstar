@@ -2,7 +2,7 @@ package repositorio
 import entidades.Usuario
 import enums.IMC
 
-class Usuarios {
+class UsuariosCadastrados {
     private var usuarios: MutableList<Usuario> = arrayListOf()
 
     fun adicionarUsuario(usuario: Usuario){
@@ -13,7 +13,7 @@ class Usuarios {
         usuarios.removeIf{it.getNome()==nome}
     }
 
-    fun getUsuariosImcAll(): MutableList<Usuario>{
+    fun getUsuarios(): MutableList<Usuario>{
         return usuarios
     }
 

@@ -4,15 +4,15 @@ import enums.Cores
 import enums.IMC
 import enums.MusculosCorpo
 import enums.Vitaminas
-import repositorio.Alimentos
-import repositorio.Exercicios
+import repositorio.RotinaAlimentos
+import repositorio.RotinaExercicios
 
 open class Usuario(private var nome: String,private var idade: Int,
                    private var peso: Double,private var altura: Double,
                    private var cpf: String) {
 
-    private var exercicios: Exercicios = Exercicios()
-    private var dieta: Alimentos = Alimentos()
+    private var rotinaExercicios: RotinaExercicios = RotinaExercicios()
+    private var dieta: RotinaAlimentos = RotinaAlimentos()
     private var grauIMC: IMC = grauIMC()
     private var porcentagemGorduraCorpotal = calcularIMC()
 
@@ -66,7 +66,7 @@ open class Usuario(private var nome: String,private var idade: Int,
     }
 
     fun adicionarExercicio(exercicio: Exercicio){
-        exercicios.adicionarExercicio(exercicio)
+        rotinaExercicios.adicionarExercicio(exercicio)
     }
 
     open fun montarDieta(){
@@ -85,15 +85,15 @@ open class Usuario(private var nome: String,private var idade: Int,
 
     open fun montarExercicios(){
         var musculosEsteira = listOf(MusculosCorpo.PERNA,MusculosCorpo.PANTURRILHA)
-        exercicios.adicionarExercicio(Exercicio("Esteira",musculosEsteira))
+        rotinaExercicios.adicionarExercicio(Exercicio("Esteira",musculosEsteira))
 
         var musculosBicicleta = listOf(MusculosCorpo.ABDOMEN,MusculosCorpo.PANTURRILHA,MusculosCorpo.PERNA)
-        exercicios.adicionarExercicio(Exercicio("Bicicleta",musculosBicicleta))
+        rotinaExercicios.adicionarExercicio(Exercicio("Bicicleta",musculosBicicleta))
 
         var musculosAbdominal = listOf(MusculosCorpo.ABDOMEN)
-        exercicios.adicionarExercicio(Exercicio("Abdominal",musculosAbdominal))
+        rotinaExercicios.adicionarExercicio(Exercicio("Abdominal",musculosAbdominal))
 
         var musculosFlexao = listOf(MusculosCorpo.TRICEPS,MusculosCorpo.PEITO)
-        exercicios.adicionarExercicio(Exercicio("Flexão",musculosFlexao))
+        rotinaExercicios.adicionarExercicio(Exercicio("Flexão",musculosFlexao))
     }
 }

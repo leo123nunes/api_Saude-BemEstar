@@ -4,7 +4,7 @@ import entidades.Alimento
 import enums.Cores
 import enums.Vitaminas
 
-class Alimentos {
+class RotinaAlimentos {
     private var alimentos: MutableList<Alimento> = mutableListOf()
 
      fun adicionarAlimento(alimento: Alimento){
