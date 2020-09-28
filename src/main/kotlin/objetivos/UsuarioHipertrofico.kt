@@ -1,8 +1,10 @@
 package objetivos
 
 import entidades.Alimento
+import entidades.Exercicio
 import entidades.Usuario
 import enums.Cores
+import enums.PartesCorpo
 import enums.Vitaminas
 
 class UsuarioHipertrofico(nome: String, idade: Int, peso: Double,
@@ -23,5 +25,20 @@ class UsuarioHipertrofico(nome: String, idade: Int, peso: Double,
         adicionarAlimento(Alimento("Atum", Cores.VERMELHO, 130.0, vitaminasAtum))
     }
 
+    override fun montarExercicios(){
+        var musculosSupino = listOf(PartesCorpo.TRICEPS, PartesCorpo.PEITO)
+        adicionarExercicio(Exercicio("Supino",musculosSupino))
 
+        var musculosAbdominal = listOf(PartesCorpo.ABDOMEN)
+        adicionarExercicio(Exercicio("Abdominal",musculosAbdominal))
+
+        var musculosLegPress = listOf(PartesCorpo.PERNA, PartesCorpo.PANTURRILHA)
+        adicionarExercicio(Exercicio("LegPress",musculosLegPress))
+
+        var musculosRoscaDireta = listOf(PartesCorpo.BICEPS, PartesCorpo.ANTEBRACO)
+        adicionarExercicio(Exercicio("Rosca Direta",musculosRoscaDireta))
+
+        var musculosTricepsFrances = listOf(PartesCorpo.TRICEPS)
+        adicionarExercicio(Exercicio("Triceps Frances",musculosTricepsFrances))
+    }
 }

@@ -2,6 +2,7 @@ package entidades
 
 import enums.Cores
 import enums.IMC
+import enums.PartesCorpo
 import enums.Vitaminas
 import repositorio.Alimentos
 import repositorio.Exercicios
@@ -41,6 +42,10 @@ open class Usuario(var nome: String, var idade: Int, var peso: Double,
         dieta.adicionarAlimento(alimento)
     }
 
+    fun adicionarExercicio(exercicio: Exercicio){
+        exercicios.adicionarExercicio(exercicio)
+    }
+
     open fun montarDieta(){
         var vitaminasArroz = listOf(Vitaminas.E,Vitaminas.B1,Vitaminas.B2,Vitaminas.B6,Vitaminas.B12,Vitaminas.CARBOIDRATO)
         dieta.adicionarAlimento(Alimento("Arroz", Cores.BRANCO, 130.0, vitaminasArroz))
@@ -53,5 +58,19 @@ open class Usuario(var nome: String, var idade: Int, var peso: Double,
 
         var vitaminasSaladaAlface = listOf(Vitaminas.A)
         dieta.adicionarAlimento(Alimento("Salada de Alface", Cores.VERDE, 15.0, vitaminasSaladaAlface))
+    }
+
+    open fun montarExercicios(){
+        var musculosEsteira = listOf(PartesCorpo.PERNA,PartesCorpo.PANTURRILHA)
+        exercicios.adicionarExercicio(Exercicio("Esteira",musculosEsteira))
+
+        var musculosBicicleta = listOf(PartesCorpo.ABDOMEN,PartesCorpo.PANTURRILHA,PartesCorpo.PERNA)
+        exercicios.adicionarExercicio(Exercicio("Bicicleta",musculosBicicleta))
+
+        var musculosAbdominal = listOf(PartesCorpo.ABDOMEN)
+        exercicios.adicionarExercicio(Exercicio("Abdominal",musculosAbdominal))
+
+        var musculosFlexao = listOf(PartesCorpo.TRICEPS,PartesCorpo.PEITO)
+        exercicios.adicionarExercicio(Exercicio("Flexão",musculosFlexao))
     }
 }

@@ -3,7 +3,7 @@ package repositorio
 import entidades.Exercicio
 
 class Exercicios {
-    private lateinit var exercicios: MutableList<Exercicio>
+    private var exercicios: MutableList<Exercicio> = mutableListOf()
 
     fun adicionarExercicio(exercicio: Exercicio){
         exercicios.add(exercicio)

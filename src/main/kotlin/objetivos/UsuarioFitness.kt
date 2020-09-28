@@ -1,9 +1,11 @@
 package objetivos
 
 import entidades.Alimento
+import entidades.Exercicio
 import entidades.Usuario
 import enums.Cores
 import enums.IMC
+import enums.PartesCorpo
 import enums.Vitaminas
 import repositorio.Alimentos
 import repositorio.Exercicios
@@ -24,5 +26,16 @@ class UsuarioFitness(nome: String,idade: Int, peso: Double,
 
         var vitaminasSaladaBrocolis = listOf(Vitaminas.CALCIO,Vitaminas.POTASSIO,Vitaminas.FERRO,Vitaminas.ZINCO,Vitaminas.A,Vitaminas.C)
         adicionarAlimento(Alimento("Salada de Brocolis", Cores.VERDE, 25.0, vitaminasSaladaBrocolis))
+    }
+
+    open fun montarExercicios(){
+        var musculosBicicleta = listOf(PartesCorpo.ABDOMEN, PartesCorpo.PANTURRILHA, PartesCorpo.PERNA)
+        adicionarExercicio(Exercicio("Bicicleta",musculosBicicleta))
+
+        var musculosAbdominal = listOf(PartesCorpo.ABDOMEN)
+        adicionarExercicio(Exercicio("Abdominal",musculosAbdominal))
+
+        var musculosTreinoHit = listOf(PartesCorpo.PERNA, PartesCorpo.PANTURRILHA,PartesCorpo.ABDOMEN)
+        adicionarExercicio(Exercicio("Treino Hit",musculosTreinoHit))
     }
 }
