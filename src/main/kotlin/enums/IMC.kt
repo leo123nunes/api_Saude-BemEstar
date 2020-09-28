@@ -1,5 +1,5 @@
 package enums
 
-enum class IMCGrau {
+enum class IMC {
     ABAIXO,NORMAL,SOBREPESO,OBESIDADE1,OBESIDADE2,OBESIDADE3
 }

@@ -1,28 +1,22 @@
-import com.google.gson.internal.`$Gson$Types`
-import entidades.Usuarios
+import entidades.Usuario
 import io.ktor.application.call
 import io.ktor.application.install
 import io.ktor.features.ContentNegotiation
-import io.ktor.http.ContentType
 import io.ktor.response.respondText
 import io.ktor.routing.get
 import io.ktor.routing.post
-import io.ktor.routing.put
 import io.ktor.routing.routing
 import io.ktor.server.engine.embeddedServer
 import io.ktor.server.netty.Netty
-import io.ktor.application.*
-import io.ktor.features.*
 import io.ktor.gson.*
-import io.ktor.http.*
 import io.ktor.request.*
 import io.ktor.response.*
-import io.ktor.routing.*
-import io.ktor.server.engine.*
-import io.ktor.server.netty.*
-import repositorio.UsuariosCadastrados
+import repositorio.Alimentos
+import repositorio.Usuarios
 
-val usuarios: UsuariosCadastrados = UsuariosCadastrados()
+val USUARIOS: Usuarios = Usuarios()
+
+val ALIMENTOS: Alimentos = Alimentos()
 
 fun main() {
 
@@ -35,39 +29,39 @@ fun main() {
             }
 
             get("/usuarios") {
-                if(usuarios.getUsuariosImcAll().isEmpty()){
+                if(USUARIOS.getUsuariosImcAll().isEmpty()){
                     call.respondText{"<h1>Nenhum usuario esta cadastrado no sistema.</h1>"}
                 }
-                call.respond(usuarios.getUsuariosImcAll())
+                call.respond(USUARIOS.getUsuariosImcAll())
             }
 
             get("/usuarios/imc/abaixo") {
-                call.respond(usuarios.getUsuariosImcAbaixo())
+                call.respond(USUARIOS.getUsuariosImcAbaixo())
             }
 
             get("/usuarios/imc/normal") {
-                call.respond(usuarios.getUsuariosImcNormal())
+                call.respond(USUARIOS.getUsuariosImcNormal())
             }
 
             get("/usuarios/imc/sobrepeso") {
-                call.respond(usuarios.getUsuariosImcSobrepeso())
+                call.respond(USUARIOS.getUsuariosImcSobrepeso())
             }
 
             get("/usuarios/imc/obesidade1") {
-                call.respond(usuarios.getUsuariosImcObesidade1())
+                call.respond(USUARIOS.getUsuariosImcObesidade1())
             }
 
             get("/usuarios/imc/obesidade2") {
-                call.respond(usuarios.getUsuariosImcObesidade2())
+                call.respond(USUARIOS.getUsuariosImcObesidade2())
             }
 
             get("/usuarios/imc/obesidade3") {
-                call.respond(usuarios.getUsuariosImcObesidade3())
+                call.respond(USUARIOS.getUsuariosImcObesidade3())
             }
 
             post("/usuarios") {
-                val novoUsuario = call.receive<Usuarios>()
-                usuarios.adicionarUsuario(novoUsuario)
+                val novoUsuario = call.receive<Usuario>()
+                USUARIOS.adicionarUsuario(novoUsuario)
             }
 
         }

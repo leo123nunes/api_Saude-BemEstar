@@ -1,5 +1,5 @@
 package enums
 
-enum class MembrosCorpo {
+enum class PartesCorpo {
     BICEPS,TRICEPS,OMBRO,COSTAS,PEITO,ANTEBRACO,ABDOMEN,TRAPEZIO,PERNA,PANTURRILHA
 }
