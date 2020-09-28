@@ -13,6 +13,10 @@ class Alimentos {
          alimentos.add(alimento)
      }
 
+    fun limparAlimentos(){
+        alimentos.clear()
+    }
+
     fun removerAlimento(nome: String){
         alimentos.removeIf{it.nome==nome}
     }

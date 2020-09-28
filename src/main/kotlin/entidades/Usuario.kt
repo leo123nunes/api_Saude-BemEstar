@@ -33,6 +33,14 @@ open class Usuario(var nome: String, var idade: Int, var peso: Double,
         }
     }
 
+    fun limparDieta(){
+        dieta.limparAlimentos()
+    }
+
+    fun adicionarAlimento(alimento: Alimento){
+        dieta.adicionarAlimento(alimento)
+    }
+
     open fun montarDieta(){
         var vitaminasArroz = listOf(Vitaminas.E,Vitaminas.B1,Vitaminas.B2,Vitaminas.B6,Vitaminas.B12,Vitaminas.CARBOIDRATO)
         dieta.adicionarAlimento(Alimento("Arroz", Cores.BRANCO, 130.0, vitaminasArroz))
@@ -45,6 +53,5 @@ open class Usuario(var nome: String, var idade: Int, var peso: Double,
 
         var vitaminasSaladaAlface = listOf(Vitaminas.A)
         dieta.adicionarAlimento(Alimento("Salada de Alface", Cores.VERDE, 15.0, vitaminasSaladaAlface))
-
     }
 }
