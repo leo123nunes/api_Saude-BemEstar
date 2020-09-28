@@ -10,7 +10,7 @@ class Usuarios {
     }
 
     fun removerUsuario(nome: String){
-        usuarios.removeIf{it.nome==nome}
+        usuarios.removeIf{it.getNome()==nome}
     }
 
     fun getUsuariosImcAll(): MutableList<Usuario>{

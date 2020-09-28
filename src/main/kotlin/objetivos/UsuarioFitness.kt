@@ -28,7 +28,7 @@ class UsuarioFitness(nome: String,idade: Int, peso: Double,
         adicionarAlimento(Alimento("Salada de Brocolis", Cores.VERDE, 25.0, vitaminasSaladaBrocolis))
     }
 
-    open fun montarExercicios(){
+    override fun montarExercicios(){
         var musculosBicicleta = listOf(PartesCorpo.ABDOMEN, PartesCorpo.PANTURRILHA, PartesCorpo.PERNA)
         adicionarExercicio(Exercicio("Bicicleta",musculosBicicleta))
 

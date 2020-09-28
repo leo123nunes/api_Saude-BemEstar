@@ -7,8 +7,9 @@ import enums.Vitaminas
 import repositorio.Alimentos
 import repositorio.Exercicios
 
-open class Usuario(var nome: String, var idade: Int, var peso: Double,
-                   var altura: Double, private var cpf: String) {
+open class Usuario(private var nome: String,private var idade: Int,
+                   private var peso: Double,private var altura: Double,
+                   private var cpf: String) {
 
     private var exercicios: Exercicios = Exercicios()
     private var dieta: Alimentos = Alimentos()
@@ -16,6 +17,22 @@ open class Usuario(var nome: String, var idade: Int, var peso: Double,
 
     fun getCpf(): String{
         return cpf
+    }
+
+    fun getNome(): String{
+        return nome
+    }
+
+    fun getPeso(): Double{
+        return peso
+    }
+
+    fun getAltura(): Double{
+        return altura
+    }
+
+    fun getIdade(): Int{
+        return idade
     }
 
     fun calcularIMC(): Double{
