@@ -1,5 +1,7 @@
 package servidor
 
+import entidades.Alimento
+import entidades.Exercicio
 import entidades.Usuario
 import enums.IMC
 import io.ktor.application.call
@@ -16,11 +18,15 @@ import io.ktor.request.*
 import io.ktor.response.*
 import objetivos.UsuarioFitness
 import objetivos.UsuarioHipertrofico
+import repositorio.AlimentosCadastrados
+import repositorio.ExerciciosCadastrados
 import repositorio.UsuariosCadastrados
 
 //Servidor main da aplicação
 
 var usuariosCadastrados: UsuariosCadastrados = UsuariosCadastrados()
+var alimentosCadastrados: AlimentosCadastrados = AlimentosCadastrados()
+var exerciciosCadastrados: ExerciciosCadastrados = ExerciciosCadastrados()
 
 fun main() {
 
@@ -37,6 +43,22 @@ fun main() {
                     call.respondText { "<h1>Nenhum usuario esta cadastrado no sistema.</h1>" }
                 } else {
                     call.respond(usuariosCadastrados.getUsuarios())
+                }
+            }
+
+            get("/alimentos") {
+                if (AlimentosCadastrados.getAlimentos().size == 0) {
+                    call.respondText { "<h1>Nenhum alimento esta cadastrado no sistema.</h1>" }
+                } else {
+                    call.respond(AlimentosCadastrados.getAlimentos())
+                }
+            }
+
+            get("/exercicios") {
+                if (ExerciciosCadastrados.getExercicios().size == 0) {
+                    call.respondText { "<h1>Nenhum exercicio esta cadastrado no sistema.</h1>" }
+                } else {
+                    call.respond(ExerciciosCadastrados.getExercicios())
                 }
             }
 
@@ -93,6 +115,18 @@ fun main() {
                     usuariosCadastrados.adicionarUsuario(novoUsuarioFitness)
                 }
                 call.respond("Usuário inserido com sucesso!")
+            }
+
+            post("/exercicios") {
+                val novoExercicio = call.receive<Exercicio>()
+                ExerciciosCadastrados.adicionarExercicio(novoExercicio)
+                call.respond("Exercicio inserido com sucesso!")
+            }
+
+            post("/alimentos") {
+                val novoAlimento = call.receive<Alimento>()
+                AlimentosCadastrados.adicionarAlimento(novoAlimento)
+                call.respond("Alimento inserido com sucesso!")
             }
 
         }

@@ -1,4 +1,4 @@
-package repositorio
+package entidades.pertencesUsuario
 
 import entidades.Exercicio
 
