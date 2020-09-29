@@ -9,24 +9,24 @@ class TreinoExercicios {
     private var exercicios: MutableList<Exercicio> = mutableListOf()
     private var totalCaloriasQueimadas = 0.0
 
-    fun adicionarExercicio(exercicio: Exercicio){
+    fun adicionarExercicio(exercicio: Exercicio) {
         exercicios.add(exercicio)
         totalCaloriasQueimadas += exercicio.getCaloriasQueimadas()
     }
 
-    fun getTotalCaloriasQueimadas(): Double{
+    fun getTotalCaloriasQueimadas(): Double {
         return totalCaloriasQueimadas
     }
 
-    fun removerExercicio(nome: String){
-        exercicios.removeIf{it.getNome()==nome}
+    fun removerExercicio(nome: String) {
+        exercicios.removeIf { it.getNome() == nome }
     }
 
     fun limparExercicios() {
         exercicios.clear()
     }
 
-    fun getExercicios(): MutableList<Exercicio>{
+    fun getExercicios(): MutableList<Exercicio> {
         return exercicios
     }
 }

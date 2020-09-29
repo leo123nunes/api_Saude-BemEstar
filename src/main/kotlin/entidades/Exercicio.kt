@@ -4,19 +4,21 @@ import enums.MusculosCorpo
 
 // Esta classe representa cada exercício do treino do usuário
 
-data class Exercicio (private val nome: String,
-                        private var musculos: List<MusculosCorpo>,
-                            private var caloriasQueimadas: Double,
-                                private var tempoMinutos: Int){
-    fun getNome(): String{
+data class Exercicio(
+    private val nome: String,
+    private var musculos: List<MusculosCorpo>,
+    private var caloriasQueimadas: Double,
+    private var tempoMinutos: Int
+) {
+    fun getNome(): String {
         return nome
     }
 
-    fun getTempoDuracao(): Int{
+    fun getTempoDuracao(): Int {
         return tempoMinutos
     }
 
-    fun getCaloriasQueimadas(): Double{
+    fun getCaloriasQueimadas(): Double {
         return caloriasQueimadas
     }
 

@@ -7,18 +7,18 @@ import entidades.Alimento
 
 class AlimentosCadastrados() {
 
-    companion object{
+    companion object {
         private var alimentos: MutableList<Alimento> = arrayListOf()
 
-        fun adicionarAlimento(alimento: Alimento){
+        fun adicionarAlimento(alimento: Alimento) {
             alimentos.add(alimento)
         }
 
-        fun removerAlimento(nome: String){
-            alimentos.removeIf{it.getNome()==nome}
+        fun removerAlimento(nome: String) {
+            alimentos.removeIf { it.getNome() == nome }
         }
 
-        fun getAlimentos(): MutableList<Alimento>{
+        fun getAlimentos(): MutableList<Alimento> {
             return alimentos
         }
     }

@@ -7,18 +7,18 @@ import entidades.Exercicio
 
 class ExerciciosCadastrados {
 
-    companion  object{
+    companion object {
         private var exercicios: MutableList<Exercicio> = arrayListOf()
 
-        fun adicionarExercicio(exercicio: Exercicio){
+        fun adicionarExercicio(exercicio: Exercicio) {
             exercicios.add(exercicio)
         }
 
-        fun removerExercicios(nome: String){
-            exercicios.removeIf{it.getNome()==nome}
+        fun removerExercicios(nome: String) {
+            exercicios.removeIf { it.getNome() == nome }
         }
 
-        fun getExercicios(): MutableList<Exercicio>{
+        fun getExercicios(): MutableList<Exercicio> {
             return exercicios
         }
     }

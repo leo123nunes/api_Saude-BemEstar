@@ -101,15 +101,20 @@ fun main() {
             post("/usuarios") {
                 val novoUsuario = call.receive<Usuario>()
                 if (novoUsuario.grauIMC() == IMC.ABAIXO ||
-                        novoUsuario.grauIMC() == IMC.NORMAL) {
-                    val novoUsuarioHipertrofico = UsuarioHipertrofico(novoUsuario.getNome(),
-                            novoUsuario.getIdade(), novoUsuario.getPeso(), novoUsuario.getAltura(),
-                            novoUsuario.getCpf(), novoUsuario.getFator())
+                    novoUsuario.grauIMC() == IMC.NORMAL
+                ) {
+                    val novoUsuarioHipertrofico = UsuarioHipertrofico(
+                        novoUsuario.getNome(),
+                        novoUsuario.getIdade(), novoUsuario.getPeso(), novoUsuario.getAltura(),
+                        novoUsuario.getCpf(), novoUsuario.getFator()
+                    )
                     usuariosCadastrados.adicionarUsuario(novoUsuarioHipertrofico)
                 } else {
-                    val novoUsuarioFitness = UsuarioHipertrofico(novoUsuario.getNome(),
-                            novoUsuario.getIdade(), novoUsuario.getPeso(), novoUsuario.getAltura(),
-                            novoUsuario.getCpf(), novoUsuario.getFator())
+                    val novoUsuarioFitness = UsuarioHipertrofico(
+                        novoUsuario.getNome(),
+                        novoUsuario.getIdade(), novoUsuario.getPeso(), novoUsuario.getAltura(),
+                        novoUsuario.getCpf(), novoUsuario.getFator()
+                    )
                     usuariosCadastrados.adicionarUsuario(novoUsuarioFitness)
                 }
                 call.respond("Usuário inserido com sucesso!")

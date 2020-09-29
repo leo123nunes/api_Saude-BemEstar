@@ -4,5 +4,5 @@ package enums
 // usuários são cadastrados incialmente com o objetivo normal
 
 enum class TiposObjetivos {
-    NORMAL,HIPERTROFIA,FITNESS
+    NORMAL, HIPERTROFIA, FITNESS
 }
