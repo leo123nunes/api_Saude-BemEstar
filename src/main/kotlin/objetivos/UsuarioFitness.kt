@@ -7,8 +7,8 @@ import enums.Cores
 import enums.MusculosCorpo
 import enums.TiposObjetivos
 import enums.Vitaminas
-import repositorio.AlimentosCadastrados
-import repositorio.ExerciciosCadastrados
+import repositorio.companionObjects.AlimentosCadastrados
+import repositorio.companionObjects.ExerciciosCadastrados
 
 // Esta classe monta um usuário que possui objetivo fitness de acordo
 // com a sua gordura corporal, herdeira da classe Usuario

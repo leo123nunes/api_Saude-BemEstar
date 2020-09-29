@@ -18,15 +18,13 @@ import io.ktor.request.*
 import io.ktor.response.*
 import objetivos.UsuarioFitness
 import objetivos.UsuarioHipertrofico
-import repositorio.AlimentosCadastrados
-import repositorio.ExerciciosCadastrados
+import repositorio.companionObjects.AlimentosCadastrados
+import repositorio.companionObjects.ExerciciosCadastrados
 import repositorio.UsuariosCadastrados
 
 //Servidor main da aplicação
 
 var usuariosCadastrados: UsuariosCadastrados = UsuariosCadastrados()
-var alimentosCadastrados: AlimentosCadastrados = AlimentosCadastrados()
-var exerciciosCadastrados: ExerciciosCadastrados = ExerciciosCadastrados()
 
 fun main() {
 

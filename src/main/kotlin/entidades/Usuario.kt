@@ -3,8 +3,8 @@ package entidades
 import enums.*
 import entidades.pertencesUsuario.DietaAlimentos
 import entidades.pertencesUsuario.TreinoExercicios
-import repositorio.AlimentosCadastrados
-import repositorio.ExerciciosCadastrados
+import repositorio.companionObjects.AlimentosCadastrados
+import repositorio.companionObjects.ExerciciosCadastrados
 
 // Esta classe representa o usuario padrão do sistema
 

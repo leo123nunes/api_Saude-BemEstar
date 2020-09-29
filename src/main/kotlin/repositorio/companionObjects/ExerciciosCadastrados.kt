@@ -1,7 +1,9 @@
-package repositorio
+package repositorio.companionObjects
 
-import entidades.Alimento
 import entidades.Exercicio
+
+// Esta classe representa os exercícios cadastrados no sistema através
+// de uma lista de Exercicio.
 
 class ExerciciosCadastrados {
 

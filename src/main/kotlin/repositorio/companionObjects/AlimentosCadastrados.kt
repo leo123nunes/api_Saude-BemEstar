@@ -1,8 +1,9 @@
-package repositorio
+package repositorio.companionObjects
 
 import entidades.Alimento
-import entidades.Usuario
-import enums.IMC
+
+// Esta classe representa os alimentos cadastrados no sistema através
+// de uma lista de Alimento.
 
 class AlimentosCadastrados() {
 
