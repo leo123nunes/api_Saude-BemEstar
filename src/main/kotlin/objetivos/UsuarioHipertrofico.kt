@@ -5,6 +5,7 @@ import entidades.Exercicio
 import entidades.Usuario
 import enums.Cores
 import enums.MusculosCorpo
+import enums.TiposObjetivos
 import enums.Vitaminas
 
 // Esta classe monta um usuário que possui objetivo hipertrofico de acordo
@@ -12,6 +13,8 @@ import enums.Vitaminas
 
 class UsuarioHipertrofico(nome: String, idade: Int, peso: Double,
                           altura: Double, cpf: String, fator: Double) : Usuario(nome,idade,peso,altura,cpf,fator){
+
+    private val tipoObjetivo = TiposObjetivos.HIPERTROFIA
 
     override fun montarDieta(){
         limparDieta()
@@ -30,18 +33,22 @@ class UsuarioHipertrofico(nome: String, idade: Int, peso: Double,
 
     override fun montarExercicios(){
         var musculosSupino = listOf(MusculosCorpo.TRICEPS, MusculosCorpo.PEITO)
-        adicionarExercicio(Exercicio("Supino",musculosSupino))
+        adicionarExercicio(Exercicio("Supino",musculosSupino,100.0,10))
 
         var musculosAbdominal = listOf(MusculosCorpo.ABDOMEN)
-        adicionarExercicio(Exercicio("Abdominal",musculosAbdominal))
+        adicionarExercicio(Exercicio("Abdominal",musculosAbdominal,100.0,10))
 
         var musculosLegPress = listOf(MusculosCorpo.PERNA, MusculosCorpo.PANTURRILHA)
-        adicionarExercicio(Exercicio("LegPress",musculosLegPress))
+        adicionarExercicio(Exercicio("LegPress",musculosLegPress,100.0,10))
 
         var musculosRoscaDireta = listOf(MusculosCorpo.BICEPS, MusculosCorpo.ANTEBRACO)
-        adicionarExercicio(Exercicio("Rosca Direta",musculosRoscaDireta))
+        adicionarExercicio(Exercicio("Rosca Direta",musculosRoscaDireta,100.0,10))
 
         var musculosTricepsFrances = listOf(MusculosCorpo.TRICEPS)
-        adicionarExercicio(Exercicio("Triceps Frances",musculosTricepsFrances))
+        adicionarExercicio(Exercicio("Triceps Frances",musculosTricepsFrances,100.0,10))
+    }
+
+    override fun getTipo(): TiposObjetivos {
+        return TiposObjetivos.HIPERTROFIA
     }
 }

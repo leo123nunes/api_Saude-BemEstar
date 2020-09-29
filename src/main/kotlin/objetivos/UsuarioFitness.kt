@@ -5,6 +5,7 @@ import entidades.Exercicio
 import entidades.Usuario
 import enums.Cores
 import enums.MusculosCorpo
+import enums.TiposObjetivos
 import enums.Vitaminas
 
 // Esta classe monta um usuário que possui objetivo fitness de acordo
@@ -12,6 +13,8 @@ import enums.Vitaminas
 
 class UsuarioFitness(nome: String,idade: Int, peso: Double,
                      altura: Double, cpf: String, fator: Double) : Usuario(nome,idade,peso,altura,cpf,fator) {
+
+    private val tipoObjetivo = TiposObjetivos.FITNESS
 
     override fun montarDieta(){
         limparDieta()
@@ -30,12 +33,16 @@ class UsuarioFitness(nome: String,idade: Int, peso: Double,
 
     override fun montarExercicios(){
         var musculosBicicleta = listOf(MusculosCorpo.ABDOMEN, MusculosCorpo.PANTURRILHA, MusculosCorpo.PERNA)
-        adicionarExercicio(Exercicio("Bicicleta",musculosBicicleta))
+        adicionarExercicio(Exercicio("Bicicleta",musculosBicicleta,100.0,10))
 
         var musculosAbdominal = listOf(MusculosCorpo.ABDOMEN)
-        adicionarExercicio(Exercicio("Abdominal",musculosAbdominal))
+        adicionarExercicio(Exercicio("Abdominal",musculosAbdominal,200.0,10))
 
         var musculosTreinoHit = listOf(MusculosCorpo.PERNA, MusculosCorpo.PANTURRILHA,MusculosCorpo.ABDOMEN)
-        adicionarExercicio(Exercicio("Treino Hit",musculosTreinoHit))
+        adicionarExercicio(Exercicio("Treino Hit",musculosTreinoHit,300.0,10))
+    }
+
+    override fun getTipo(): TiposObjetivos {
+        return TiposObjetivos.FITNESS
     }
 }

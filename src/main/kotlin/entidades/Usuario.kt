@@ -1,27 +1,34 @@
 package entidades
 
-import enums.Cores
-import enums.IMC
-import enums.MusculosCorpo
-import enums.Vitaminas
-import repositorio.RotinaAlimentos
-import repositorio.RotinaExercicios
+import enums.*
+import repositorio.DietaAlimentos
+import repositorio.TreinoExercicios
 
 // Esta classe representa o usuario padrão do sistema
 
-open class Usuario(private var nome: String,private var idade: Int,
+open class Usuario(private val nome: String,private var idade: Int,
                    private var peso: Double,private var altura: Double,
-                   private var cpf: String, private var fator: Double) {
+                   private val cpf: String, private var fator: Double) {
 
-    private var treinoExercicios: RotinaExercicios = RotinaExercicios()
-    private var dieta: RotinaAlimentos = RotinaAlimentos()
+    private var treinoExercicios: TreinoExercicios
+    private var dieta: DietaAlimentos
     private var grauIMC: IMC = grauIMC()
     private var porcentagemGorduraCorpotal = calcularIMC()
     private var necessidadeEnergetica = necessidadeEnergetica()
+    private var caloriasIngeridasDiariamente: Double
+    private var caloriasQueimadasDiariamente: Double
 
     init{
-        this.montarExercicios()
-        this.montarDieta()
+        this.dieta = DietaAlimentos()
+        this.treinoExercicios = TreinoExercicios()
+        montarExercicios()
+        montarDieta()
+        this.caloriasIngeridasDiariamente = dieta.getTotalCaloriasIngeridas()
+        this.caloriasQueimadasDiariamente = treinoExercicios.getTotalCaloriasQueimadas()
+    }
+
+    fun setCaloriasQueimadasDiariamente(){
+        caloriasQueimadasDiariamente =  treinoExercicios.getTotalCaloriasQueimadas()
     }
 
     fun getCpf(): String{
@@ -68,6 +75,10 @@ open class Usuario(private var nome: String,private var idade: Int,
         dieta.limparAlimentos()
     }
 
+    fun limparExercicios(){
+        treinoExercicios.limparExercicios()
+    }
+
     fun adicionarAlimento(alimento: Alimento){
         dieta.adicionarAlimento(alimento)
     }
@@ -106,15 +117,19 @@ open class Usuario(private var nome: String,private var idade: Int,
 
     open fun montarExercicios(){
         var musculosEsteira = listOf(MusculosCorpo.PERNA,MusculosCorpo.PANTURRILHA)
-        treinoExercicios.adicionarExercicio(Exercicio("Esteira",musculosEsteira))
+        treinoExercicios.adicionarExercicio(Exercicio("Esteira",musculosEsteira,700.0,10))
 
         var musculosBicicleta = listOf(MusculosCorpo.ABDOMEN,MusculosCorpo.PANTURRILHA,MusculosCorpo.PERNA)
-        treinoExercicios.adicionarExercicio(Exercicio("Bicicleta",musculosBicicleta))
+        treinoExercicios.adicionarExercicio(Exercicio("Bicicleta",musculosBicicleta, 540.0,10))
 
         var musculosAbdominal = listOf(MusculosCorpo.ABDOMEN)
-        treinoExercicios.adicionarExercicio(Exercicio("Abdominal",musculosAbdominal))
+        treinoExercicios.adicionarExercicio(Exercicio("Abdominal",musculosAbdominal, 588.0,10))
 
         var musculosFlexao = listOf(MusculosCorpo.TRICEPS,MusculosCorpo.PEITO)
-        treinoExercicios.adicionarExercicio(Exercicio("Flexão",musculosFlexao))
+        treinoExercicios.adicionarExercicio(Exercicio("Flexão",musculosFlexao,100.0,10))
+    }
+
+    open fun getTipo(): TiposObjetivos{
+        return TiposObjetivos.NORMAL
     }
 }

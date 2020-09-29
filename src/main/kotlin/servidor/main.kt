@@ -14,10 +14,8 @@ import io.ktor.server.netty.Netty
 import io.ktor.gson.*
 import io.ktor.request.*
 import io.ktor.response.*
-import io.ktor.routing.param
 import objetivos.UsuarioFitness
 import objetivos.UsuarioHipertrofico
-import repositorio.RotinaAlimentos
 import repositorio.UsuariosCadastrados
 
 //Servidor main da aplicação
