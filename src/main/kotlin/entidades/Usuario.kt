@@ -71,10 +71,10 @@ open class Usuario(
         var imc = calcularIMC()
         return when {
             imc < 18.5 -> IMC.ABAIXO
-            imc > 18.5 && imc < 24.9 -> IMC.NORMAL
-            imc > 25 && imc < 29.9 -> IMC.SOBREPESO
-            imc > 30 && imc < 34.9 -> IMC.OBESIDADE1
-            imc > 35 && imc < 39.9 -> IMC.OBESIDADE2
+            imc >= 18.5 && imc < 24.9 -> IMC.NORMAL
+            imc >= 25 && imc < 29.9 -> IMC.SOBREPESO
+            imc >= 30 && imc < 34.9 -> IMC.OBESIDADE1
+            imc >= 35 && imc < 39.9 -> IMC.OBESIDADE2
             else -> IMC.OBESIDADE3
         }
     }
