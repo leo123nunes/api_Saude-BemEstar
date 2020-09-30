@@ -11,7 +11,7 @@ import repositorio.companionObjects.ExerciciosCadastrados
 open class Usuario(
     private val nome: String, private var idade: Int,
     private var peso: Double, private var altura: Double,
-    private val cpf: String ?= null, private var fator: Double
+    private val cpf: String? = null, private var fator: Double
 ) {
 
     private var treinoExercicios: TreinoExercicios
@@ -31,11 +31,11 @@ open class Usuario(
         this.caloriasQueimadasDiariamente = treinoExercicios.getTotalCaloriasQueimadas()
     }
 
-    fun getTreino(): TreinoExercicios{
+    fun getTreino(): TreinoExercicios {
         return treinoExercicios
     }
 
-    fun getDieta(): DietaAlimentos{
+    fun getDieta(): DietaAlimentos {
         return dieta
     }
 
