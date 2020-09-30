@@ -14,9 +14,15 @@ import repositorio.companionObjects.ExerciciosCadastrados
 // com a sua gordura corporal, herdeira da classe Usuario
 
 class UsuarioHipertrofico(
-    nome: String, idade: Int, peso: Double,
-    altura: Double, cpf: String, fator: Double
-) : Usuario(nome, idade, peso, altura, cpf, fator), ObrigacoesUsuarioHipertrofico {
+    usuario: Usuario
+) : Usuario(
+    usuario.getNome(),
+    usuario.getIdade(),
+    usuario.getPeso(),
+    usuario.getAltura(),
+    usuario.getCpf(),
+    usuario.getFator()
+), ObrigacoesUsuarioHipertrofico {
 
     private var tipoObjetivo: TiposObjetivos = TiposObjetivos.HIPERTROFIA
 
@@ -25,7 +31,7 @@ class UsuarioHipertrofico(
 
         var alimentos = AlimentosCadastrados.getAlimentos()
 
-        for ( x in alimentos){
+        for (x in alimentos) {
             adicionarAlimento(x)
         }
 
@@ -36,7 +42,7 @@ class UsuarioHipertrofico(
     override fun montarTreino() {
         var exercicios = ExerciciosCadastrados.getExercicios()
 
-        for ( x in exercicios){
+        for (x in exercicios) {
             adicionarExercicio(x)
         }
 
@@ -48,25 +54,25 @@ class UsuarioHipertrofico(
     }
 
     override fun tirarExerciciosDeMuitaCaloria() {
-        var exercicios = getTreino().getExercicios().filter{it.getCaloriasQueimadas() > 100.0}
+        var exercicios = getTreino().getExercicios().filter { it.getCaloriasQueimadas() > 100.0 }
 
-        for(x in exercicios){
+        for (x in exercicios) {
             removerExercicio(x.getNome())
         }
     }
 
     override fun tirarAlimentosSemProteina() {
-        var alimentos = getDieta().getAlimentos().filter{!(it.getVitaminas().contains(Vitaminas.PROTEINA))}
+        var alimentos = getDieta().getAlimentos().filter { !(it.getVitaminas().contains(Vitaminas.PROTEINA)) }
 
-        for(x in alimentos){
+        for (x in alimentos) {
             removerAlimento(x.getNome())
         }
     }
 
     override fun somenteAlimentosComCarboidratos() {
-        var alimentos = getDieta().getAlimentos().filter{!(it.getVitaminas().contains(Vitaminas.CARBOIDRATO))}
+        var alimentos = getDieta().getAlimentos().filter { !(it.getVitaminas().contains(Vitaminas.CARBOIDRATO)) }
 
-        for(x in alimentos){
+        for (x in alimentos) {
             removerAlimento(x.getNome())
         }
     }

@@ -11,7 +11,7 @@ import repositorio.companionObjects.ExerciciosCadastrados
 open class Usuario(
     private val nome: String, private var idade: Int,
     private var peso: Double, private var altura: Double,
-    private val cpf: String, private var fator: Double
+    private val cpf: String ?= null, private var fator: Double
 ) {
 
     private var treinoExercicios: TreinoExercicios
@@ -39,7 +39,7 @@ open class Usuario(
         return dieta
     }
 
-    fun getCpf(): String {
+    fun getCpf(): String? {
         return cpf
     }
 

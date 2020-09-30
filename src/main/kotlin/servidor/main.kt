@@ -106,18 +106,10 @@ fun main() {
                 if (novoUsuario.grauIMC() == IMC.ABAIXO ||
                     novoUsuario.grauIMC() == IMC.NORMAL
                 ) {
-                    val novoUsuarioHipertrofico = UsuarioHipertrofico(
-                        novoUsuario.getNome(),
-                        novoUsuario.getIdade(), novoUsuario.getPeso(), novoUsuario.getAltura(),
-                        novoUsuario.getCpf(), novoUsuario.getFator()
-                    )
+                    val novoUsuarioHipertrofico = UsuarioHipertrofico(novoUsuario)
                     usuariosCadastrados.adicionarUsuario(novoUsuarioHipertrofico)
                 } else {
-                    val novoUsuarioFitness = UsuarioHipertrofico(
-                        novoUsuario.getNome(),
-                        novoUsuario.getIdade(), novoUsuario.getPeso(), novoUsuario.getAltura(),
-                        novoUsuario.getCpf(), novoUsuario.getFator()
-                    )
+                    val novoUsuarioFitness = UsuarioHipertrofico(novoUsuario)
                     usuariosCadastrados.adicionarUsuario(novoUsuarioFitness)
                 }
                 call.respond("Usuário inserido com sucesso!")
