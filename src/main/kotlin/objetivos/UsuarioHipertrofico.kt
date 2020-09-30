@@ -3,10 +3,10 @@ package objetivos
 import entidades.Alimento
 import entidades.Exercicio
 import entidades.Usuario
-import enums.Cores
 import enums.MusculosCorpo
 import enums.TiposObjetivos
 import enums.Vitaminas
+import interfaces.ObrigacoesUsuarioHipertrofico
 import repositorio.companionObjects.AlimentosCadastrados
 import repositorio.companionObjects.ExerciciosCadastrados
 
@@ -16,52 +16,59 @@ import repositorio.companionObjects.ExerciciosCadastrados
 class UsuarioHipertrofico(
     nome: String, idade: Int, peso: Double,
     altura: Double, cpf: String, fator: Double
-) : Usuario(nome, idade, peso, altura, cpf, fator) {
+) : Usuario(nome, idade, peso, altura, cpf, fator), ObrigacoesUsuarioHipertrofico {
 
-    private val tipoObjetivo = TiposObjetivos.HIPERTROFIA
+    private var tipoObjetivo: TiposObjetivos = TiposObjetivos.HIPERTROFIA
 
     override fun montarDieta() {
         limparDieta()
-        var vitaminasCarne = listOf(Vitaminas.B1, Vitaminas.B2, Vitaminas.B3, Vitaminas.PROTEINA, Vitaminas.GORDURA)
-        AlimentosCadastrados.adicionarAlimento(Alimento("Arroz", Cores.BRANCO, 130.0, vitaminasCarne))
-        adicionarAlimento(Alimento("Carne", Cores.VERMELHO, 143.0, vitaminasCarne))
 
-        var vitaminasFrango = listOf(Vitaminas.B3, Vitaminas.FERRO, Vitaminas.PROTEINA)
-        AlimentosCadastrados.adicionarAlimento(Alimento("Frango", Cores.ROSA, 239.0, vitaminasFrango))
-        adicionarAlimento(Alimento("Frango", Cores.ROSA, 239.0, vitaminasFrango))
+        var alimentos = AlimentosCadastrados.getAlimentos()
 
-        var vitaminasOvo = listOf(Vitaminas.B2, Vitaminas.B6, Vitaminas.B12, Vitaminas.PROTEINA, Vitaminas.E)
-        AlimentosCadastrados.adicionarAlimento(Alimento("Ovo", Cores.BRANCO, 52.0, vitaminasOvo))
-        adicionarAlimento(Alimento("Ovo", Cores.BRANCO, 52.0, vitaminasOvo))
+        for ( x in alimentos){
+            adicionarAlimento(x)
+        }
 
-        var vitaminasAtum = listOf(Vitaminas.PROTEINA, Vitaminas.POTASSIO, Vitaminas.MAGNESIO)
-        AlimentosCadastrados.adicionarAlimento(Alimento("Atum", Cores.VERMELHO, 130.0, vitaminasAtum))
-        adicionarAlimento(Alimento("Atum", Cores.VERMELHO, 130.0, vitaminasAtum))
+        tirarAlimentosSemProteina()
+        somenteAlimentosComCarboidratos()
     }
 
     override fun montarTreino() {
-        var musculosSupino = listOf(MusculosCorpo.TRICEPS, MusculosCorpo.PEITO)
-        ExerciciosCadastrados.adicionarExercicio(Exercicio("Supino", musculosSupino, 100.0, 10))
-        adicionarExercicio(Exercicio("Supino", musculosSupino, 100.0, 10))
+        var exercicios = ExerciciosCadastrados.getExercicios()
 
-        var musculosAbdominal = listOf(MusculosCorpo.ABDOMEN)
-        ExerciciosCadastrados.adicionarExercicio(Exercicio("Abdominal", musculosAbdominal, 100.0, 10))
-        adicionarExercicio(Exercicio("Abdominal", musculosAbdominal, 100.0, 10))
+        for ( x in exercicios){
+            adicionarExercicio(x)
+        }
 
-        var musculosLegPress = listOf(MusculosCorpo.PERNA, MusculosCorpo.PANTURRILHA)
-        ExerciciosCadastrados.adicionarExercicio(Exercicio("LegPress", musculosLegPress, 100.0, 10))
-        adicionarExercicio(Exercicio("LegPress", musculosLegPress, 100.0, 10))
-
-        var musculosRoscaDireta = listOf(MusculosCorpo.BICEPS, MusculosCorpo.ANTEBRACO)
-        ExerciciosCadastrados.adicionarExercicio(Exercicio("Rosca Direta", musculosRoscaDireta, 100.0, 10))
-        adicionarExercicio(Exercicio("Rosca Direta", musculosRoscaDireta, 100.0, 10))
-
-        var musculosTricepsFrances = listOf(MusculosCorpo.TRICEPS)
-        ExerciciosCadastrados.adicionarExercicio(Exercicio("Triceps Frances", musculosTricepsFrances, 100.0, 10))
-        adicionarExercicio(Exercicio("Triceps Frances", musculosTricepsFrances, 100.0, 10))
+        tirarExerciciosDeMuitaCaloria()
     }
 
-    override fun getTipo(): TiposObjetivos {
-        return TiposObjetivos.HIPERTROFIA
+    fun getTipo(): TiposObjetivos {
+        return tipoObjetivo
     }
+
+    override fun tirarExerciciosDeMuitaCaloria() {
+        var exercicios = getTreino().getExercicios().filter{it.getCaloriasQueimadas() > 100.0}
+
+        for(x in exercicios){
+            removerExercicio(x.getNome())
+        }
+    }
+
+    override fun tirarAlimentosSemProteina() {
+        var alimentos = getDieta().getAlimentos().filter{!(it.getVitaminas().contains(Vitaminas.PROTEINA))}
+
+        for(x in alimentos){
+            removerAlimento(x.getNome())
+        }
+    }
+
+    override fun somenteAlimentosComCarboidratos() {
+        var alimentos = getDieta().getAlimentos().filter{!(it.getVitaminas().contains(Vitaminas.CARBOIDRATO))}
+
+        for(x in alimentos){
+            removerAlimento(x.getNome())
+        }
+    }
+
 }

@@ -7,15 +7,10 @@ import enums.MusculosCorpo
 data class Exercicio(
     private val nome: String,
     private var musculos: List<MusculosCorpo>,
-    private var caloriasQueimadas: Double,
-    private var tempoMinutos: Int
+    private var caloriasQueimadas: Double
 ) {
     fun getNome(): String {
         return nome
-    }
-
-    fun getTempoDuracao(): Int {
-        return tempoMinutos
     }
 
     fun getCaloriasQueimadas(): Double {

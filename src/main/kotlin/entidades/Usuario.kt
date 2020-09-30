@@ -31,8 +31,12 @@ open class Usuario(
         this.caloriasQueimadasDiariamente = treinoExercicios.getTotalCaloriasQueimadas()
     }
 
-    fun setCaloriasQueimadasDiariamente() {
-        caloriasQueimadasDiariamente = treinoExercicios.getTotalCaloriasQueimadas()
+    fun getTreino(): TreinoExercicios{
+        return treinoExercicios
+    }
+
+    fun getDieta(): DietaAlimentos{
+        return dieta
     }
 
     fun getCpf(): String {
@@ -108,41 +112,40 @@ open class Usuario(
     open fun montarDieta() {
         var vitaminasArroz =
             listOf(Vitaminas.E, Vitaminas.B1, Vitaminas.B2, Vitaminas.B6, Vitaminas.B12, Vitaminas.CARBOIDRATO)
-        AlimentosCadastrados.adicionarAlimento(Alimento("Arroz", Cores.BRANCO, 130.0, vitaminasArroz))
-        dieta.adicionarAlimento(Alimento("Arroz", Cores.BRANCO, 130.0, vitaminasArroz))
+        AlimentosCadastrados.adicionarAlimento(Alimento("Arroz", 130.0, vitaminasArroz))
+        dieta.adicionarAlimento(Alimento("Arroz", 130.0, vitaminasArroz))
 
         var vitaminasFeijao = listOf(Vitaminas.B1, Vitaminas.B2, Vitaminas.B3, Vitaminas.B9, Vitaminas.FERRO)
-        AlimentosCadastrados.adicionarAlimento(Alimento("Feijao", Cores.MARROM, 76.0, vitaminasFeijao))
-        dieta.adicionarAlimento(Alimento("Feijao", Cores.MARROM, 76.0, vitaminasFeijao))
+        AlimentosCadastrados.adicionarAlimento(Alimento("Feijao", 76.0, vitaminasFeijao))
+        dieta.adicionarAlimento(Alimento("Feijao", 76.0, vitaminasFeijao))
 
         var vitaminasCarne = listOf(Vitaminas.B1, Vitaminas.B2, Vitaminas.B3, Vitaminas.PROTEINA, Vitaminas.GORDURA)
-        AlimentosCadastrados.adicionarAlimento(Alimento("Carne", Cores.VERMELHO, 143.0, vitaminasCarne))
-        dieta.adicionarAlimento(Alimento("Carne", Cores.VERMELHO, 143.0, vitaminasCarne))
+        AlimentosCadastrados.adicionarAlimento(Alimento("Carne", 143.0, vitaminasCarne))
+        dieta.adicionarAlimento(Alimento("Carne", 143.0, vitaminasCarne))
 
         var vitaminasSaladaAlface = listOf(Vitaminas.A)
-        AlimentosCadastrados.adicionarAlimento(Alimento("Salada de Alface", Cores.VERDE, 15.0, vitaminasSaladaAlface))
-        dieta.adicionarAlimento(Alimento("Salada de Alface", Cores.VERDE, 15.0, vitaminasSaladaAlface))
+        AlimentosCadastrados.adicionarAlimento(Alimento("Salada de Alface", 15.0, vitaminasSaladaAlface))
+        dieta.adicionarAlimento(Alimento("Salada de Alface", 15.0, vitaminasSaladaAlface))
+
+
     }
 
     open fun montarTreino() {
         var musculosEsteira = listOf(MusculosCorpo.PERNA, MusculosCorpo.PANTURRILHA)
-        ExerciciosCadastrados.adicionarExercicio(Exercicio("Esteira", musculosEsteira, 700.0, 10))
-        treinoExercicios.adicionarExercicio(Exercicio("Esteira", musculosEsteira, 700.0, 10))
+        ExerciciosCadastrados.adicionarExercicio(Exercicio("Esteira", musculosEsteira, 700.0))
+        treinoExercicios.adicionarExercicio(Exercicio("Esteira", musculosEsteira, 700.0))
 
         var musculosBicicleta = listOf(MusculosCorpo.ABDOMEN, MusculosCorpo.PANTURRILHA, MusculosCorpo.PERNA)
-        ExerciciosCadastrados.adicionarExercicio(Exercicio("Bicicleta", musculosBicicleta, 540.0, 10))
-        treinoExercicios.adicionarExercicio(Exercicio("Bicicleta", musculosBicicleta, 540.0, 10))
+        ExerciciosCadastrados.adicionarExercicio(Exercicio("Bicicleta", musculosBicicleta, 540.0))
+        treinoExercicios.adicionarExercicio(Exercicio("Bicicleta", musculosBicicleta, 540.0))
 
         var musculosAbdominal = listOf(MusculosCorpo.ABDOMEN)
-        ExerciciosCadastrados.adicionarExercicio(Exercicio("Abdominal", musculosAbdominal, 588.0, 10))
-        treinoExercicios.adicionarExercicio(Exercicio("Abdominal", musculosAbdominal, 588.0, 10))
+        ExerciciosCadastrados.adicionarExercicio(Exercicio("Abdominal", musculosAbdominal, 588.0))
+        treinoExercicios.adicionarExercicio(Exercicio("Abdominal", musculosAbdominal, 588.0))
 
         var musculosFlexao = listOf(MusculosCorpo.TRICEPS, MusculosCorpo.PEITO)
-        ExerciciosCadastrados.adicionarExercicio(Exercicio("Flexão", musculosFlexao, 100.0, 10))
-        treinoExercicios.adicionarExercicio(Exercicio("Flexão", musculosFlexao, 100.0, 10))
+        ExerciciosCadastrados.adicionarExercicio(Exercicio("Flexão", musculosFlexao, 100.0))
+        treinoExercicios.adicionarExercicio(Exercicio("Flexão", musculosFlexao, 100.0))
     }
 
-    open fun getTipo(): TiposObjetivos {
-        return TiposObjetivos.NORMAL
-    }
 }

@@ -28,6 +28,9 @@ var usuariosCadastrados: UsuariosCadastrados = UsuariosCadastrados()
 
 fun main() {
 
+    AlimentosCadastrados.inserirAlimentos()
+    ExerciciosCadastrados.inserirExercicios()
+
     embeddedServer(Netty, 8080) {
         routing {
             install(ContentNegotiation) {

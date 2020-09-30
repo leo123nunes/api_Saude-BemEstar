@@ -1,8 +1,7 @@
 package entidades.pertencesUsuario
 
 import entidades.Alimento
-import enums.Cores
-import enums.Vitaminas
+import repositorio.companionObjects.AlimentosCadastrados
 
 // Esta classe representa a dieta através de uma lista de alimentos
 // de cada usuário
@@ -25,7 +24,9 @@ class DietaAlimentos {
     }
 
     fun removerAlimento(nome: String) {
+        var alimento = AlimentosCadastrados.getAlimento(nome)
         alimentos.removeIf { it.getNome() == nome }
+        totalCaloriasIngeridas -= alimento!!.getCalorias()
     }
 
     fun getAlimentos(): MutableList<Alimento> {

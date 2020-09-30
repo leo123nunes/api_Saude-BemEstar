@@ -1,6 +1,7 @@
 package entidades.pertencesUsuario
 
 import entidades.Exercicio
+import repositorio.companionObjects.ExerciciosCadastrados
 
 // Esta classe representa o treino através de uma lista de exercícios
 // de cada usuário
@@ -19,7 +20,10 @@ class TreinoExercicios {
     }
 
     fun removerExercicio(nome: String) {
+        var exercicio = ExerciciosCadastrados.getExercicio(nome)
         exercicios.removeIf { it.getNome() == nome }
+
+        totalCaloriasQueimadas -= exercicio!!.getCaloriasQueimadas()
     }
 
     fun limparExercicios() {
