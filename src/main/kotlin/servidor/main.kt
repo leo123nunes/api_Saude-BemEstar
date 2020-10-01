@@ -28,6 +28,7 @@ var usuariosCadastrados: UsuariosCadastrados = UsuariosCadastrados()
 
 fun main() {
 
+    // Adicionando alimentos e exercícios padrões no sistema
     AlimentosCadastrados.inserirAlimentos()
     ExerciciosCadastrados.inserirExercicios()
 
@@ -109,7 +110,7 @@ fun main() {
                     val novoUsuarioHipertrofico = UsuarioHipertrofico(novoUsuario)
                     usuariosCadastrados.adicionarUsuario(novoUsuarioHipertrofico)
                 } else {
-                    val novoUsuarioFitness = UsuarioHipertrofico(novoUsuario)
+                    val novoUsuarioFitness = UsuarioFitness(novoUsuario)
                     usuariosCadastrados.adicionarUsuario(novoUsuarioFitness)
                 }
                 call.respond("Usuário inserido com sucesso!")
