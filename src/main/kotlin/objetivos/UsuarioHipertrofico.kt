@@ -1,9 +1,7 @@
 package objetivos
 
-import entidades.Alimento
-import entidades.Exercicio
+
 import entidades.Usuario
-import enums.MusculosCorpo
 import enums.TiposObjetivos
 import enums.Vitaminas
 import interfaces.ObrigacoesUsuarioHipertrofico

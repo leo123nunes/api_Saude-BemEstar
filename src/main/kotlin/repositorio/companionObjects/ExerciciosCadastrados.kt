@@ -58,6 +58,18 @@ class ExerciciosCadastrados {
 
             var musculosTreinoHit = listOf(MusculosCorpo.PERNA, MusculosCorpo.PANTURRILHA, MusculosCorpo.ABDOMEN)
             adicionarExercicio(Exercicio("Treino Hit", musculosTreinoHit, 300.0))
+
+            var musculosDesenvolvimmento = listOf(MusculosCorpo.OMBRO)
+            adicionarExercicio(Exercicio("Desenvolvimento", musculosDesenvolvimmento, 80.0))
+
+            var musculosPuxadaAberta = listOf(MusculosCorpo.COSTAS)
+            adicionarExercicio(Exercicio("Puxada Aberta", musculosPuxadaAberta, 100.0))
+
+            var musculosRemadaCorda = listOf(MusculosCorpo.COSTAS)
+            adicionarExercicio(Exercicio("Remada com Corda", musculosRemadaCorda, 200.0))
+
+            var musculosRemadaAlta = listOf(MusculosCorpo.TRAPEZIO)
+            adicionarExercicio(Exercicio("Remada Alta", musculosRemadaAlta, 300.0))
         }
     }
 }
