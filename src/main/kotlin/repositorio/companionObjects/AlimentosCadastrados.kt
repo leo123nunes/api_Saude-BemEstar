@@ -68,6 +68,25 @@ class AlimentosCadastrados() {
 
             var vitaminasSaladaTomate = listOf(Vitaminas.A, Vitaminas.FOSFORO, Vitaminas.POTASSIO)
             adicionarAlimento(Alimento("Salada Tomate", 25.0, vitaminasSaladaTomate))
+
+            var vitaminasOvos = listOf(Vitaminas.A, Vitaminas.FOSFORO, Vitaminas.POTASSIO)
+            adicionarAlimento(Alimento("Ovos", 45.0,vitaminasOvos))
+
+            var vitaminasPeitodeFrango = listOf(Vitaminas.B, Vitaminas.ZINCO)
+            adicionarAlimento(Alimento("Peito de Frango", 50.0, vitaminasPeitodeFrango))
+
+            var vitaminasLaranja = listOf(Vitaminas.C, Vitaminas.CALCIO, Vitaminas.POTASSIO)
+            adicionarAlimento(Alimento("Laranja", 65.0, vitaminasLaranja))
+
+            var vitaminasAmendoas = listOf(Vitaminas.E, Vitaminas.B2)
+            adicionarAlimento(Alimento("Amendôas", 25.0, vitaminasAmendoas))
+
+            var vitaminasSalmao = listOf(Vitaminas.B3, Vitaminas.B12, Vitaminas.B3)
+            adicionarAlimento(Alimento("Salmão", 243.0,  vitaminasSalmao))
+
+            var vitaminasAtum = listOf(Vitaminas.A, Vitaminas.FOSFORO, Vitaminas.POTASSIO)
+            adicionarAlimento(Alimento("Atum", 221.0, vitaminasAtum))
+
         }
     }
 }
