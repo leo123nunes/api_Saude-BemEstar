@@ -27,7 +27,7 @@ compileTestKotlin {
     kotlinOptions.jvmTarget = "1.8"
 }
 
-mainClassName = 'br.iesb.poo.mainKt'
+mainClassName = 'main.kotlin.servidor.main.kt'
 task stage{
     dependsOn installDist
 }
