@@ -27,7 +27,7 @@ dependencies {
     testCompile group: 'junit', name: 'junit', version: '4.12'
 }
 
-mainClassName = 'servidor.MainKt'
+mainClassName = 'kotlin.main.servidor.MainKt'
 task stage{
     dependsOn installDist
 }
